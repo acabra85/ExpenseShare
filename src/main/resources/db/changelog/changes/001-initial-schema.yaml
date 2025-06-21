@@ -1,0 +1,81 @@
+# src/main/resources/db/changelog/changes/001-initial-schema.yaml
+databaseChangeLog:
+  - changeSet:
+      id: 001-initial-schema
+      author: your_name # Replace with your name
+      changes:
+        - createTable:
+            tableName: groups
+            columns:
+              - column:
+                  name: id
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: members
+                  type: TEXT # Storing as text (JSON string or comma-separated) for simplicity, consider proper array type for specific DBs or join tables
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_by
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: expenses
+            columns:
+              - column:
+                  name: id
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: group_id
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount
+                  type: DOUBLE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: paid_by
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: owed_by
+                  type: TEXT # Storing as text (JSON string) for simplicity
+                  constraints:
+                    nullable: true
+              - column:
+                  name: date
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            constraintName: fk_expenses_group_id
+            baseTableName: expenses
+            baseColumnNames: group_id
+            referencedTableName: groups
+            referencedColumnNames: id
+            onDelete: CASCADE # If a group is deleted, delete its expenses

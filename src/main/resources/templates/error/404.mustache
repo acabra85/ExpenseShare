@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found - ExpenseShare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #374151; /* Gray 700 */
+            text-align: center;
+        }
+        .error-container {
+            background-color: #ffffff;
+            padding: 3rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            max-width: 500px;
+        }
+        .error-code {
+            font-size: 6rem; /* text-8xl */
+            font-weight: 800; /* Extra bold */
+            color: #ef4444; /* Red 500 */
+            margin-bottom: 1rem;
+        }
+        .error-message {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* Bold */
+            margin-bottom: 0.75rem;
+        }
+        .error-description {
+            font-size: 1.125rem; /* text-lg */
+            color: #6b7280; /* Gray 500 */
+            margin-bottom: 2rem;
+        }
+        .home-link {
+            display: inline-block;
+            background-color: #3b82f6; /* Blue 500 */
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+        }
+        .home-link:hover {
+            background-color: #2563eb; /* Blue 600 */
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+<div class="error-container">
+    <div class="error-code">404</div>
+    <h1 class="error-message">Page Not Found</h1>
+    <p class="error-description">
+        Oops! The page you're looking for doesn't exist. It might have been moved or deleted.
+    </p>
+    <a href="/" class="home-link">Go to Homepage</a>
+</div>
+</body>
+</html>

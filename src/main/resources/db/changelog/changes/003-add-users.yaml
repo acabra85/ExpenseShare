@@ -1,0 +1,18 @@
+# src/main/resources/db/changelog/changes/003-insert-initial-users.yaml
+databaseChangeLog:
+  - changeSet:
+      id: 003-insert-initial-users
+      author: your_name # Replace with your name
+      changes:
+        - insert:
+            tableName: user_access
+            columns:
+              - column: {name: username, value: "user"}
+              - column: {name: password, value: "$2a$10$o4cVq4Btrg.V6ooJPdZkXOsfsJLcS.MOIW/bgh5VvKcF2C9HmZXea"} # dummy values will be replaced by real ones in the db
+              - column: {name: roles, value: "USER"}
+        - insert:
+            tableName: user_access
+            columns:
+              - column: {name: username, value: "admin"}
+              - column: {name: password, value: "$2a$10$ZfxeqvOkmTaRkEGpGd7Jveqr.4pflinf9YluZ3OdzjEh/.Wxt65Za"} # dummy values will be replaced by real ones in the db
+              - column: {name: roles, value: "ADMIN,USER"}
